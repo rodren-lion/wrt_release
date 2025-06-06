@@ -65,7 +65,7 @@ update_feeds() {
     if ! grep -q "small-package" "$BUILD_DIR/$FEEDS_CONF"; then
         # 确保文件以换行符结尾
         [ -z "$(tail -c 1 "$BUILD_DIR/$FEEDS_CONF")" ] || echo "" >>"$BUILD_DIR/$FEEDS_CONF"
-        echo "src-git small8 https://github.com/kenzok8/small-package" >>"$BUILD_DIR/$FEEDS_CONF"
+        echo "src-git small8 https://github.com/rodren-lion/small-package" >>"$BUILD_DIR/$FEEDS_CONF"
     fi
 
     # 添加bpf.mk解决更新报错
@@ -77,7 +77,7 @@ update_feeds() {
     # if grep -q "nss_packages" "$BUILD_DIR/$FEEDS_CONF"; then
     #     sed -i '/nss_packages/d' "$BUILD_DIR/$FEEDS_CONF"
     #     [ -z "$(tail -c 1 "$BUILD_DIR/$FEEDS_CONF")" ] || echo "" >>"$BUILD_DIR/$FEEDS_CONF"
-    #     echo "src-git nss_packages https://github.com/LiBwrt/nss-packages.git" >>"$BUILD_DIR/$FEEDS_CONF"
+    #     echo "src-git nss_packages https://github.com/rodren-lion/nss-packages.git" >>"$BUILD_DIR/$FEEDS_CONF"
     # fi
 
     # 更新 feeds
@@ -305,7 +305,7 @@ update_ath11k_fw() {
 
     if [ -d "$(dirname "$makefile")" ] && [ -f "$makefile" ]; then
         [ -f "$new_mk" ] && \rm -f "$new_mk"
-        curl -L -o "$new_mk" https://raw.githubusercontent.com/VIKINGYFY/immortalwrt/refs/heads/main/package/firmware/ath11k-firmware/Makefile
+        curl -L -o "$new_mk" https://raw.githubusercontent.com/rodren-lion/immortalwrt/refs/heads/main/package/firmware/ath11k-firmware/Makefile
         \mv -f "$new_mk" "$makefile"
     fi
 }
